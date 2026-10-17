@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cstdlib> // Needed for rand() and srand()
+#include <ctime>   // Needed for time()
+
+using namespace std;
+
+int main() {
+    // 1. Seed the random number generator so the number changes every game
+    srand(time(0));
+    
+    // 2. Generate a random number between 1 and 100
+    int secretNumber = rand() % 100 + 1;
+    
+    int userGuess = 0;
+    int attempts = 0;
+
+    cout << "=== WELCOME TO THE GUESS THE NUMBER ===\n";
+    cout << "I have picked a number between 1 and 100. What do you think it is?\n\n";
+
+    // 3. The Game Loop
+    // This loop will keep running as long as the user hasn't guessed the secret number
+    while (userGuess != secretNumber) {
+        cout << "Enter your guess: ";
+        cin >> userGuess;
+        attempts++; // Increment the number of tries
+
+        // 4. Check the logic
+        if (userGuess > secretNumber) {
+            cout << "Too high! Try again.\n\n";
+        } 
+        else if (userGuess < secretNumber) {
+            cout << "Too low! Try again.\n\n";
+        } 
+        else {
+            cout << "\n Congratulations! You guessed the secret number " << secretNumber << "!\n";
+            cout << "It took you " << attempts << " attempts.\n";
+        }
+    }
+
+    return 0;
+}
