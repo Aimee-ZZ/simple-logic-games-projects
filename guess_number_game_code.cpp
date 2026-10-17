@@ -36,6 +36,10 @@ int main() {
             cout << "It took you " << attempts << " attempts.\n";
         }
     }
+    // Force the program to wait for the user to press Enter before closing
+        cout << "\nPress Enter to exit the game...";
+        cin.ignore(); // Clears any leftover input characters
+        cin.get();    // Pauses the program and waits for an Enter key press
 
     return 0;
 }
