@@ -14,6 +14,13 @@ int main() {
     int userGuess = 0;
     int attempts = 0;
 
+     // --- COLOR CODES DEFINITION ---
+    // \033[ is the escape sequence, followed by the color code number, and 'm'
+    string RESET = "\033[0m";   // Resets terminal to default color
+    string RED   = "\033[31m";  // Red text
+    string BLUE  = "\033[34m";  // Blue text
+    string GREEN = "\033[32m";  // Green text for winning!
+
     cout << "=== WELCOME TO THE GUESS THE NUMBER ===\n";
     cout << "I have picked a number between 1 and 100. What do you think it is?\n\n";
 
@@ -26,13 +33,13 @@ int main() {
 
         // 4. Check the logic
         if (userGuess > secretNumber) {
-            cout << "Too high! Try again.\n\n";
+            cout << RED << "TOO HIGH!! Try again." << RESET << "\n\n";
         } 
         else if (userGuess < secretNumber) {
-            cout << "Too low! Try again.\n\n";
+            cout << BLUE << "TOO LOW!! Try again." << RESET << "\n\n";
         } 
         else {
-            cout << "\n Congratulations! You guessed the secret number " << secretNumber << "!\n";
+            cout << GREEN << "\n CONGRATULATIONS! You guessed the secret number " << secretNumber << "!" << RESET << "\n";
             cout << "It took you " << attempts << " attempts.\n";
         }
     }
